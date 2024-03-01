@@ -1,8 +1,8 @@
 # privatni-casovi-web-app
 
-backend
-  tsc
+backend <br>
+  tsc <br>
   npm run serve
 
-frontend
->ng run serve
+frontend <br>
+  ng run serve
