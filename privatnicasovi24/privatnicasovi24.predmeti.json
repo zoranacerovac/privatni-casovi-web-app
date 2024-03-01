@@ -1,0 +1,183 @@
+[{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c938b"
+  },
+  "name": "Matematika",
+  "professors": [
+    {
+      "firstname": "Jasna",
+      "lastname": "Marin",
+      "username": "jasna"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c938c"
+  },
+  "name": "Fizika",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c938d"
+  },
+  "name": "Hemija",
+  "professors": [
+    {
+      "firstname": "Marko",
+      "lastname": "Markovic",
+      "username": "marko"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c938e"
+  },
+  "name": "Informatika",
+  "professors": [
+    {
+      "firstname": "Jasna",
+      "lastname": "Marin",
+      "username": "jasna"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c938f"
+  },
+  "name": "Programiranje",
+  "professors": [
+    {
+      "firstname": "Radovan",
+      "lastname": "Jovanovic",
+      "username": "rado"
+    },
+    {
+      "firstname": "Jasna",
+      "lastname": "Marin",
+      "username": "jasna"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9390"
+  },
+  "name": "Srpski jezik i književnost",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9391"
+  },
+  "name": "Engleski jezik",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9392"
+  },
+  "name": "Nemački jezik",
+  "professors": [
+    {
+      "firstname": "Radovan",
+      "lastname": "Jovanovic",
+      "username": "rado"
+    },
+    {
+      "firstname": "Marko",
+      "lastname": "Markovic",
+      "username": "marko"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9393"
+  },
+  "name": "Italijanski jezik",
+  "professors": [
+    {
+      "firstname": "Marko",
+      "lastname": "Markovic",
+      "username": "marko"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9394"
+  },
+  "name": "Francuski jezik",
+  "professors": [
+    {
+      "firstname": "Nina",
+      "lastname": "Kolaric"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9395"
+  },
+  "name": "Španki jezik",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9396"
+  },
+  "name": "Latinski jezik",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9397"
+  },
+  "name": "Biologija",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9398"
+  },
+  "name": "Istorija",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c9399"
+  },
+  "name": "Geografija",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65cc01ee91a217461f4c939a"
+  },
+  "name": "Svet oko nas",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65ccb285e21c11b718cfa3df"
+  },
+  "name": "Veronauka",
+  "professors": []
+},
+{
+  "_id": {
+    "$oid": "65ce6f8278037538c8d2d6ec"
+  },
+  "name": "Religija i civilizacije",
+  "professors": [
+    {
+      "firstname": "Radovan",
+      "lastname": "Jovanovic",
+      "username": "rado"
+    }
+  ]
+}]
