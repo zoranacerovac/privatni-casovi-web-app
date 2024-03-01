@@ -1,0 +1,67 @@
+<div>
+
+  <div class="navbar">
+      <div class="title">
+        <a href="/"> <h1>Moj Najdraži Nastavnik</h1> </a>
+      </div>
+      <div class="menu">
+          <a href="/reg">Registruj se</a>
+      </div>
+  </div>
+
+  <div class = "main-card">
+    <div class="form-card">
+
+      <h2>Prijavi se</h2> 
+      <table>
+        <tr>
+          <td><label for="username">Korisničko ime:</label></td>
+          <td><input type="text" id="username" name="username" [(ngModel)]="username"></td>
+        </tr>
+        <tr>
+          <td><label for="password">Lozinka:</label></td>
+          <td><input type="password" id="password" name="password" [(ngModel)]="password"></td>
+        </tr>
+      </table>
+
+      <span class="error-message">{{mess}}</span><br/>
+      <button type="submit" (click)="login()">Uloguj se</button>
+      <br/>
+
+      <a href="/changePass" class="changePasswordLink">Zaboravljena lozinka?</a>
+
+     
+      <table *ngIf="changePass">
+        <tr>
+          <td>Korisničko ime:</td>
+          <td><input type="password" [(ngModel)]="username"></td>
+        </tr>
+        <tr>
+          <td>Stara lozinka:</td>
+          <td><input type="password" [(ngModel)]="oldPass"></td>
+        </tr>
+        <tr>
+          <td>Nova lozinka:</td>
+          <td><input type="password" [(ngModel)]="newPass"></td>
+        </tr>
+        <tr>
+          <td>Potvrda nove lozinke:</td>
+          <td><input type="password" [(ngModel)]="repeatPass"></td>
+        </tr>
+        <tr>
+          <td><button (click)="changePassword()" >Promeni šifru</button></td>
+          <span class="error-message">{{messPass}}</span><br/>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+
+  <div class="footer">
+      <p>@ 2024 By Zorana Cerovac</p>
+  </div>
+</div>
+
+
+

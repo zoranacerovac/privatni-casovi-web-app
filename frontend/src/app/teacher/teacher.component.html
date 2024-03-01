@@ -1,0 +1,97 @@
+<div class="navbar">
+    <div class="title">
+        <a href="/profesor"> <h1>Moj Najdraži Nastavnik</h1> </a>
+    </div>
+    <div class="menu">
+        <a href="/profesor" style="opacity: 0.7">Profil</a>
+        <a href="/profesor/user">Časovi</a>
+        <a href="/profesor/lessons">Moji učenici</a>
+        <a href="/">Odjavi se</a>
+    </div>
+</div>
+
+<div class="middle">
+    <div class="main-card">
+        <table>
+            <tr>
+                <td>
+                    <img [src]="showPicture()" alt="Profile picture" class="profile-image">
+                </td>
+                <td *ngIf="changeData">
+                    <input type="file" name="picture" accept=".jpg,.png" class="custom-file-input" id="fileInput"
+                    (change)="onFileChange($event)" />
+                    <label for="fileInput" class="custom-file-button">Priloži datoteku</label>
+                    <div style="font-size: 14px;">{{pictureUploaded}}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Ime: </td>
+                <td *ngIf="!changeData">{{currUser.firstname}}</td>
+                <td *ngIf="changeData"> <input type="text" [(ngModel)]="newDatas.username" placeholder="{{currUser.firstname}}"> </td>
+            </tr>
+            <tr>
+                <td>Prezime: </td>
+                <td *ngIf="!changeData">{{currUser.lastname}}</td>
+                <td *ngIf="changeData"> <input type="text" [(ngModel)]="newDatas.lastname" placeholder="{{currUser.lastname}}"> </td>
+            </tr>
+            <tr>
+                <td>Adresa: </td>
+                <td *ngIf="!changeData">{{currUser.addres}}</td>
+                <td *ngIf="changeData"> <input type="text" [(ngModel)]="newDatas.addres" placeholder="{{currUser.addres}}"> </td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td *ngIf="!changeData"> {{currUser.email}}</td>
+                <td *ngIf="changeData"> <input type="text" [(ngModel)]="newDatas.email" placeholder="{{currUser.email}}"> </td>
+            </tr>
+            <tr>
+                <td>Kontakt telefon: </td>
+                <td *ngIf="!changeData">{{currUser.phone}}</td>
+                <td *ngIf="changeData"> <input type="text" [(ngModel)]="newDatas.phone" placeholder="{{currUser.phone}}"> </td>
+            </tr>
+            <tr>
+                <td>Vaš CV:</td>
+            <td><button (click)="downloadPdf(currUser.cv)" style="height: auto; width: auto;">Otvori</button></td>
+            </tr>
+            <tr>
+                <td>Predmete koje predajete:</td>
+                <td *ngIf="!changeData"> 
+                    <label *ngFor="let s of currUser.subjects">{{s}}</label>
+                </td>
+                <td *ngIf="changeData" class="custom-dropdown-grades" >
+                    <select multiple [(ngModel)]="newDatas.subjects">
+                        <option *ngFor="let subject of subjectsFromDB" [value]="subject.name">
+                        {{ subject.name }}
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Uzrast kojem predajete:</td>
+                <td *ngIf="!changeData"> 
+                    <label *ngFor="let g of currUser.grades">{{g}}</label>
+                </td>
+                <td *ngIf="changeData" class="custom-dropdown-grades">
+                    <select multiple [(ngModel)]="newDatas.grades">
+                        <option *ngFor="let grade of gradesValueProfesor" [value]="grade">
+                        {{ grade }}
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <span class="error-message">{{mess}}</span><br/>
+            <button *ngIf="!changeData" (click)="changeDataMethod()">Izmeni podatke</button>
+            &nbsp;
+            <button *ngIf="changeData" (click)="changeDataMethod()">Nazad</button>
+            &nbsp;
+            <button *ngIf="changeData" (click)="saveChanges()">Sačuvaj izmene</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p>@ 2024 By Zorana Cerovac</p>
+</div>

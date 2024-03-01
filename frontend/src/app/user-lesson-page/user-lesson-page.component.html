@@ -1,0 +1,59 @@
+<div class="navbar">
+    <div class="title">
+        <a href="/user"> <h1>Moj Najdraži Nastavnik</h1> </a>
+    </div>
+    <div class="menu">
+        <a href="/user" >Profil</a>
+        <a href="/user/profesors" >Nastavnici</a>
+        <a href="/user/lessons" style="opacity: 0.7">Časovi</a>
+        <a href="/">Odjavi se</a>
+    </div>
+</div>
+
+
+<div class="middle">
+    <div class="main-card">
+
+        <h3>Časovi koji slede:</h3>
+        <table>
+            <tr>
+                <th>Datum</th>
+                <th>Početak</th>
+                <th>Kraj</th>
+                <th>Profesor</th>
+                <th>Predmet</th>
+            </tr>
+            <tr *ngFor="let l of allFutureLessons">
+                <td>{{l.start  | date: 'dd.MM.yyyy' }} 
+                <td>{{ subtractOneHour(l.start) | date: 'HH:mm' }}</td>
+                <td>{{ subtractOneHour(l.end) | date: 'HH:mm' }}</td>
+                <td>{{l.professorFirstname}} {{l.professorLastname}}</td>
+                <td>{{l.subject}}</td>
+            </tr>
+        </table>
+
+        <h3>Održani časovi:</h3>
+        <table>
+            <tr>
+                <th>Datum</th>
+                <th>Početak</th>
+                <th>Kraj</th>
+                <th>Profesor</th>
+                <th>Predmet</th>
+                <th>Tvoj komentar</th>
+            </tr>
+            <tr *ngFor="let l of allPastLessons">
+                <td>{{l.start  | date: 'dd.MM.yyyy' }} 
+                <td>{{ subtractOneHour(l.start) | date: 'HH:mm' }}</td>
+                <td>{{ subtractOneHour(l.end) | date: 'HH:mm' }}</td>
+                <td>{{l.professorFirstname}} {{l.professorLastname}}</td>
+                <td>{{l.subject}}</td>
+                <td>{{l.commentStudent}}</td>
+            </tr>
+        </table>
+    <div>
+</div>
+<div class="footer">
+    <p>@ 2024 By Zorana Cerovac</p>
+</div>
+

@@ -1,0 +1,88 @@
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 50px;
+  margin-bottom: 100px;
+}
+
+.main-card {
+  min-width: 50%;
+  min-height: 50%;
+  background-color: #F3F8FF;
+  border: 7px solid #98D6EA;
+  border-style: outset;
+  opacity: 0.9;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.error-message {
+  color: red;
+}
+td {
+  text-align: left;
+  padding: 3px;
+
+}
+
+td label {
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+  padding-right: 10px; 
+}
+
+table{
+  border-collapse: collapse;
+}
+td, th {
+  border: 2px solid #98D6EA; /* Postavite debljinu i boju ivica */
+  padding: 8px; /* Dodajte ovo svojstvo kako biste imali razmak između sadržaja i ivica */
+}
+
+/* HEADER AND FOOTER */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #98D6EA;
+    opacity: 0.95;
+    color: black;
+  }
+  
+  .title h1 {
+    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Lobster', sans-serif; */
+    margin: 0;
+  }
+  
+  .menu a {
+    color: black;
+    text-decoration: none;
+    padding: 8px; 
+  }
+
+  .title a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    text-decoration: underline; 
+  }
+
+  .footer {
+    background-color: #98D6EA;
+    opacity: 0.95;
+    color: black;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }

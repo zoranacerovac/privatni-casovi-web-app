@@ -1,0 +1,76 @@
+<div class="navbar">
+    <div class="title">
+        <h1>Moj Najdraži Nastavnik</h1>
+    </div>
+    <div class="menu">
+        <a href="/">Odjavi se</a>
+    </div>
+</div>
+  
+    
+<div class="main-card"> 
+    <div class="form-card">
+        <h3>Liste zahteva nastavnika</h3>
+        <table *ngIf="showFlag" class="user-table">
+            <tr>
+                <th>Korisničko ime</th>
+                <th>Slika</th>
+                <th>CV</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Mejl</th>
+                <th colspan="2">Akcije</th>
+            </tr>
+            <tr *ngFor="let u of pendingUsers">
+                <td>{{u.username}}</td>
+                <td> <img [src]="u.picture" alt="Profile picture" class="profile-image"> </td>
+                <!-- <td><button (click)="openCV(u.cv)">Prikazi CV</button></td> -->
+                <td><button (click)="downloadPdf(u.cv)">Otvori</button></td>
+                <td>{{u.firstname}}</td>
+                <td>{{u.lastname}}</td>
+                <td>{{u.email}}</td>
+                <td><button (click)="approved(u)">Prihvati</button></td>
+                <td><button (click)="denied(u)">Odbij</button></td>
+            </tr>
+        </table>
+        <h3>Dodavanje novog predmeta</h3>
+        <table>
+            <tr>
+                <td> <input type="text" placeholder="Unesite ime predmeta" [(ngModel)]="subName"></td>
+                <td colspan="2"> <button (click)="addSub()">Dodaj</button></td>
+            </tr>
+        </table>
+        <span class="error-message">{{mess}}</span><br/>
+        <!-- <h3>Predlozi od strane pending nastavnika</h3>
+        <table>
+            <tr>
+                <th>Naziv</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td> Ime</td>
+                <td> <button (click)="acceptSub()">Dodaj</button></td>
+            </tr>
+        </table> -->
+ 
+        <p *ngIf="!showFlag">Trenutno nema neobradjenih zahteva nastavnika.</p>
+
+        <h3>Broj nastavnika po predmetima</h3>
+        <canvas id="chartAllProfessorsAndSubjects" ></canvas>
+
+        <h3>Broj nastavnika po uzrastu</h3>
+        <canvas id="chartAllProfessorsAndGrades" style="max-width: 400px; max-height: 400px;"></canvas>
+
+        <h3>Raspodela nastavnika prema polu:</h3>
+        <canvas id="chartAllProfessorsGender" style="max-width: 400px; max-height: 400px;"></canvas>
+
+        <h3>Raspodela učenika prema polu:</h3>
+        <canvas id="chartAllStudentsGender" style="max-width: 400px; max-height: 400px;"></canvas>
+        
+        <h3>Prosečan broj časova u toku prethodne godine:</h3>
+        <canvas id="chartLessonsPerDays" style="max-width: 400px; max-height: 400px;"></canvas>
+    </div>
+</div>
+<div class="footer">
+    <p>@ 2024 By Zorana Cerovac</p>
+</div>

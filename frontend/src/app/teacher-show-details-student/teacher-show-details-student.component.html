@@ -1,0 +1,51 @@
+<div class="navbar">
+    <div class="title">
+        <a href="/profesor"> <h1>Moj Najdraži Nastavnik</h1> </a>
+    </div>
+    <div class="menu">
+        <a href="/profesor" >Profil</a>
+        <a href="/profesor/user">Časovi</a>
+        <a href="/profesor/lessons" style="opacity: 0.7">Moji učenici</a>
+        <a href="/">Odjavi se</a>
+    </div>
+</div>
+
+<div class="middle">
+    <div class="main-card">
+        <h3>Svi održani časovi učenika: {{currStudent.firstname}} {{currStudent.lastname}}</h3>
+        <table>
+            <tr>
+                <th>Predmet</th>
+                <th>Datum</th>
+                <th>Utisni nakon časa</th>
+
+            </tr>
+            <tr *ngFor="let l of allLessons">
+                <td>{{l.subject}}</td>
+                <!-- <td>{{l.start  | date: 'dd.MM.yyyy' }} {{ l.start  | date: 'HH:mm' }}-{{l.end  | date: 'HH:mm'  }} </td> -->
+                <td>{{ l.start | date: 'dd.MM.yyyy' }} {{ subtractOneHour(l.start) | date: 'HH:mm' }}-{{ subtractOneHour(l.end) | date: 'HH:mm' }}</td>
+
+                <td *ngIf="checkIfRatingSent(l)">
+                    <label style="display: block; 
+                    margin-bottom: 5px;">Komentar nakon časa:</label>
+                    <textarea style="display: block; 
+                    margin-bottom: 10px;" [(ngModel)]="l.commentProfessor"></textarea>
+                    <br>
+                    <label>Unesite ocenu od 1-5:</label>
+                    <input type="number" [max]="5" min="1" [(ngModel)]="l.rating"> <br>
+                    <button (click)="sendCommentandRating(l)">Pošalji</button><br>
+                    <span class="error-message">{{l.mess}}</span>
+                </td>
+                <td *ngIf="!checkIfRatingSent(l)">
+                    <p>Komentar nakon časa: {{l.commentProfessor}}</p>
+                    <p>Ocena: {{l.rating}}</p>                
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p>@ 2024 By Zorana Cerovac</p>
+</div>

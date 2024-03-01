@@ -1,0 +1,70 @@
+<div>
+
+    <div class="navbar">
+        <div class="title">
+            <a href="/"> <h1>Moj Najdraži Nastavnik</h1> </a>
+        </div>
+        <div class="menu">
+            <a href="/reg">Registruj se</a>
+            <a href="/login">Prijavi se</a>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class="main-card">
+            <label>Broj ucenika na nasim kursevima: {{this.numStudent}}</label>
+            <label>Broj profesora u sistemu: {{this.numTeacher}}</label>
+            <label>Broj održanih časova u poslednjoj nedelji: {{this.lastWeek}}</label>
+            <label>Broj održanih časova u poslednjih mesec dana: {{this.lastMonth}}</label>
+            &nbsp;
+            <button (click)="all()">Prikaži sve</button>
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Pretraži po predmetu" [(ngModel)]="searchBySubjectName">  
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Pretraži po imenu" [(ngModel)]="searchByFirstname">  
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Pretraži po prezimenu" [(ngModel)]="searchByLastname">  
+                    </td>
+                    <td colspan="2">
+                        <button (click)="search()">Pretraži</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button (click)="sortBySubjectName()">Sortiraj po predmetu</button>
+                    </td>
+                    <td>
+                        <button (click)="sortProfessorsByFirstname()">Sortiraj po imenu</button>
+                    </td>
+                    <td colspan="2">
+                        <button (click)="sortProfessorsByLastname()">Sortiraj po prezimenu</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Predmet
+                    </th>
+                    <th colspan="3">
+                        Ime i prezime
+                    </th>
+                </tr>
+                <tr *ngFor="let s of allSub">
+                    <td>{{s.name}}</td>
+                    <td colspan="3">
+                        <label *ngFor="let p of s.professors">{{p.firstname}} {{p.lastname}}</label>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+  
+
+    <div class="footer">
+        <p>@ 2024 By Zorana Cerovac</p>
+    </div>
+</div>

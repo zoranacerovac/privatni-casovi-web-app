@@ -1,0 +1,175 @@
+<div>
+    <div class="navbar">
+        <div class="title">
+            <a href="/"> <h1>Moj Najdraži Nastavnik</h1> </a>
+        </div>
+        <div class="menu">
+            <a href="/login">Prijavi se</a>
+        </div>
+    </div>
+
+    <div class="main-card">
+        <div class="form-card">
+            <h2>Izabrite kako želite da se registrujete</h2>
+        
+            <div>
+                <button (click)="profesor()" *ngIf="!isProfesor">
+                Nastanik
+                </button>
+                &nbsp;
+                <button (click)="student()" *ngIf="!isStudent">
+                Učenik
+                </button>
+            </div>
+        
+                <div *ngIf="isProfesor || isStudent">
+                    <h4 *ngIf="isProfesor">Forma za registraciju Nastavnika</h4>
+                    <h4 *ngIf="isStudent">Forma za registraciju Učenika</h4>
+        
+                    <table>
+                        <tr>
+                            <td>Korisnicko ime:</td>
+                            <td>
+                                <input type="text" [(ngModel)]="username">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lozinka:</td>
+                            <td>
+                                <input type="password" [(ngModel)]="password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ime:</td>
+                            <td>
+                                <input type="text" [(ngModel)]="firstname">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Prezime:</td>
+                            <td>
+                                <input type="text" [(ngModel)]="lastname">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pol:</td>
+                            <td>
+                                <label class="gender-option">M 
+                                    <input type="radio" [(ngModel)]="gender" value="M">
+                                </label>
+                                <label class="gender-option">Ž 
+                                    <input type="radio" [(ngModel)]="gender" value="Z">
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adresa:</td>
+                            <td>
+                                <input type="text" [(ngModel)]="addres">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Broj telefona:</td>
+                            <td>
+                                <input type="text" [(ngModel)]="phone">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mejl:</td>
+                            <td>
+                                <input type="text" [(ngModel)]="email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dodajte sliku:</td>
+                            <td>
+                                <input type="file" name="picture" accept=".jpg,.png" class="custom-file-input" id="fileInput"
+                                (change)="onFileChange($event)" />
+                                <label for="fileInput" class="custom-file-button">Priloži datoteku</label>
+                                <div style="font-size: 14px;">{{pictureUploaded}}</div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="isProfesor">
+                            <td>Unesi vašu bigrafiju u .pdf obliku:</td>
+                            <td>
+                                <input type="file" name="cv" accept=".pdf" class="custom-file-input" id="fileInputCV"  max="3000" size="3000000"
+                                (change)="onPdfChange($event)"/>
+                                <label for="fileInputCV" class="custom-file-button">Priloži datoteku</label>
+                                <div style="font-size: 14px;">{{cvUploaded}}</div>
+                            </td>
+                        </tr>     
+                        <tr *ngIf="isProfesor">
+                            <td>Koje predmete predajete?</td>
+                            <td class="custom-dropdown-grades" >
+                                <select multiple [(ngModel)]="subjects">
+                                    <option *ngFor="let subject of subjectsFromDB" [value]="subject.name">
+                                    {{ subject.name }}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr *ngIf="isProfesor">
+                            <td>Nešto drugo?</td>
+                            <td>
+                                <input type="text" [(ngModel)]="subjectsAdd">
+                            </td>
+                        </tr>
+                        <tr *ngIf="isProfesor">
+                            <td>Kojim razredima želite da predajete?</td>
+                            <td class="custom-dropdown-grades">
+                                <select multiple [(ngModel)]="grades">
+                                    <option *ngFor="let grade of gradesValueProfesor" [value]="grade">
+                                    {{ grade }}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr *ngIf="isProfesor">
+                            <td>Kako ste čuli za nas?</td >
+                            <td>
+                                <textarea rows="4" cols="50" [(ngModel)]="comment"></textarea>
+                            </td>
+                        </tr>
+
+                        <tr *ngIf="isStudent">
+                            <td>U koju školu ideš?</td>
+                            <td>
+                                <div class="custom-dropdown">
+                                    <select [(ngModel)]="school">
+                                        <option *ngFor="let school of schoolValueStudent " [value]="school">
+                                        {{ school }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="isStudent">
+                            <td>Koji si rasred?</td>
+                            <td>
+                                <div class="custom-dropdown">
+                                    <select [(ngModel)]="grade">
+                                        <option *ngFor="let grade of chooseGradeScale() " [value]="grade">
+                                        {{ grade }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div>
+                        <span class="error-message">{{mess}}</span><br/>
+                        <button class="register-button" (click)="register()">Registruj se</button>
+                       
+                    </div>
+                </div>
+        </div>
+    </div>
+   
+      
+    
+    <div class="footer">
+        <p>@ 2024 By Zorana Cerovac</p>
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+
+  <div class="navbar">
+    <div class="title">
+      <a href="/"> <h1>Moj Najdraži Nastavnik</h1> </a>
+    </div>
+  </div>
+
+  <div class="main-card">
+  <div class="form-card">
+    <h2>Prijava korisnika sa privilegijama</h2>
+    <table>
+      <tr>
+        <th><label for="username">Korisničko ime:</label></th>
+        <td><input type="text" id="username" name="username" [(ngModel)]="username" required></td>
+      </tr>
+      <tr>
+        <th><label for="password">Lozinka:</label></th>
+        <td><input type="password" id="password" name="password" [(ngModel)]="password" required></td>
+      </tr>
+    </table>
+    <span class="error-message">{{mess}}</span><br/>
+    <button type="submit" (click)="login()">Uloguj se</button>
+  </div>
+</div>
+
+<div class="footer">
+  <p>@ 2024 By Zorana Cerovac</p>
+</div>
+ 
+

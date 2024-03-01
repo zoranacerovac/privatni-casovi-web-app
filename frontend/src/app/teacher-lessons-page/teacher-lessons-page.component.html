@@ -1,0 +1,70 @@
+<div class="navbar">
+    <div class="title">
+        <a href="/profesor"> <h1>Moj Najdraži Nastavnik</h1> </a>
+    </div>
+    <div class="menu">
+        <a href="/profesor" >Profil</a>
+        <a href="/profesor/user" style="opacity: 0.7">Časovi</a>
+        <a href="/profesor/lessons">Moji učenici</a>
+        <a href="/">Odjavi se</a>
+    </div>
+</div>
+
+
+<div class="middle">
+    <div class="main-card">
+        <h3>Sledećih 5 časova u naredna 3 dana: </h3>
+        <table >
+            <tr >
+                <th>Predmet</th>
+                <th>Učenik</th>
+            </tr>
+            <tr *ngFor="let l of fiveLessons" >
+                <td>{{l.subject}}</td>
+                <td>{{l.studentFirstname}} {{l.studentLastname}}</td>
+            </tr>
+        </table>
+        <h3>Svi poslati zahtevi za časove:</h3>
+        <table>
+            <tr>
+                <th>Učenik</th>
+                <th>Predmet</th>
+                <th>Komentar učenika</th>
+                <th colspan="3"></th>
+            </tr>
+            <tr *ngFor="let l of lessons;">
+                <td>
+                    {{l.studentFirstname}} {{l.studentLastname}} 
+                </td>
+                <td>
+                    {{l.subject}}
+                </td>
+                <td>
+                    {{l.commentStudent}}
+                </td>
+                <td style="border-right: none;">
+                    <button (click)="acceptLesson(l)">Prihvati</button>
+                </td>
+                <td style="border-left: none; border-right: none ;">
+                    <button (click)="deniedLesson(l)">Odbij</button>
+                </td>
+                <td style="border-left: none;">
+                    <label style="display: block; 
+                    margin-bottom: 5px;">Obrazložiti u slučaju odbijanja:</label>
+                    <textarea style="display: block; 
+                    margin-bottom: 10px;" [(ngModel)]="l.description"></textarea><br>
+                    <span class="error-message">{{l.mess}}</span><br/>
+                </td>
+
+        </table>
+        
+            
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <p>@ 2024 By Zorana Cerovac</p>
+</div>
+

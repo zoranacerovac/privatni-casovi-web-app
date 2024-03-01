@@ -1,0 +1,106 @@
+<div class="navbar">
+    <div class="title">
+        <a href="/user"> <h1>Moj Najdraži Nastavnik</h1> </a>
+    </div>
+    <div class="menu">
+        <a href="/user">Profil</a>
+        <a href="/user/profesors">Nastavnici</a>
+        <a href="/user/lessons">Časovi</a>
+        <a href="/">Odjavi se</a>
+    </div>
+</div>
+
+<div class="middle">
+    <div class="main-card">
+        <h4>Detalji o nastavniku:</h4>
+        <table>
+            <tr>
+                <td>
+                    <img [src]="currProfessor.picture" alt="Profile picture" class="profile-image">
+                </td>
+            </tr>
+            <tr>
+                <td>Ime: </td>
+                <td>{{currProfessor.firstname}}</td>
+            </tr>
+            <tr>
+                <td>Prezime: </td>
+                <td>{{currProfessor.lastname}}</td>
+            </tr>
+            <tr>
+                <td>Adresa: </td>
+                <td>{{currProfessor.addres}}</td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td> {{currProfessor.email}}</td>
+            </tr>
+            <tr>
+                <td>Kontakt telefon: </td>
+                <td>{{currProfessor.phone}}</td>
+            </tr>
+            <tr>
+                <td>Predmete koje predajete:</td>
+                <td> 
+                    <label *ngFor="let s of currProfessor.subjects">{{s}}</label>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+
+        <h4>Zakaži čas:</h4>
+        <table>
+            <tr>
+                <td>Izaberi predmet:</td>
+                <td *ngIf="currProfessor.subjects.length > 1">
+                    <div class="custom-dropdown">
+                        <select [(ngModel)]="newLesson.subject">
+                            <option *ngFor="let subject of currProfessor.subjects " [value]="subject">
+                            {{ subject }}
+                            </option>
+                        </select>
+                    </div>
+                </td>
+                <td *ngIf="currProfessor.subjects.length === 1">
+                    <div class="custom-dropdown">
+                        <select [(ngModel)]="newLesson.subject" disabled>
+                            <option *ngFor="let subject of currProfessor.subjects " [value]="subject">
+                            {{ subject }}
+                            </option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Izaberi datum i vreme:</td>
+                <td>
+                    <input type="datetime-local" [(ngModel)]="newLesson.date">
+                </td>
+            </tr>
+            <tr>
+                <td>Kratak opis časa:</td>
+                <td>
+                    <textarea rows="4" cols="25"  [(ngModel)]="newLesson.commentStudent"></textarea>
+                </td>
+            </tr>
+            <td class="checkbox-container">
+                <input type="checkbox"  [(ngModel)]="newLesson.double">
+                <label>Želim dupli čas</label>
+              </td>
+
+        </table>
+        <div>
+            <span class="error-message">{{mess}}</span><br/>
+            <button class="register-button" (click)="reserveLesson()"> Zakaži</button>
+           
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>@ 2024 By Zorana Cerovac</p>
+</div>
+
